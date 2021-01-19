@@ -44,18 +44,27 @@ $ads = [
     ]
 ];
 
-function sumFormat($number) {
-
-    $formatNumber = number_format(ceil($number), 0, '', ' ') . "<b class=\"rub\">р</b>";
-
-    return $formatNumber;
-}
-
 require_once 'functions.php';
 
-$page_content = renderTemplate('templates/index.php', ['ads' => $ads]);
+// Работа с датой
+date_default_timezone_set("Europe/Moscow");
 
-$layout_content = renderTemplate('templates/layout.php', ['categories' => $categories,'title' => 'Название страницы', 'content' => $page_content]);
+// Расчет даты до полуночи
+$curHour = date('G');
+$curMinutes = date('i');
+
+$untilMidnightHour = 24 - $curHour;
+$untilMidnightMinutes = 60 - $curMinutes;
+$untilMidnightDate = $untilMidnightHour . ':' . $untilMidnightMinutes;
+
+$page_content = renderTemplate('templates/index.php', ['ads' => $ads, 'date' => $untilMidnightDate]);
+
+$layout_content = renderTemplate('templates/layout.php',
+    [
+        'categories' => $categories,
+        'title' => 'Название страницы',
+        'content' => $page_content
+    ]);
 
 
 print ($layout_content);

@@ -1,5 +1,12 @@
 <?php
 
+function sumFormat($number) {
+
+    $formatNumber = number_format(ceil($number), 0, '', ' ') . "<b class=\"rub\">р</b>";
+
+    return $formatNumber;
+}
+
 // Функция шаблонизатор
 function renderTemplate($path, $arr) {
     ob_start();
@@ -16,4 +23,6 @@ function renderTemplate($path, $arr) {
     }
 
 }
+
+
 
