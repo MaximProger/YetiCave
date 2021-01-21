@@ -28,14 +28,14 @@
         <h2>Открытые лоты</h2>
     </div>
     <ul class="lots__list">
-        <? foreach ($arr['ads'] as $ad) : ?>
+        <? foreach ($arr['ads'] as $key => $ad) : ?>
             <li class="lots__item lot">
                 <div class="lot__image">
                     <img src="<?= $ad['img'] ?>" width="350" height="260" alt="Сноуборд">
                 </div>
                 <div class="lot__info">
                     <span class="lot__category"><?= $ad['category'] ?></span>
-                    <h3 class="lot__title"><a class="text-link" href="lot.html"><?= $ad['title'] ?></a>
+                    <h3 class="lot__title"><a class="text-link" href="lot.php?id=<?=$key?>"><?= $ad['title'] ?></a>
                     </h3>
                     <div class="lot__state">
                         <div class="lot__rate">
