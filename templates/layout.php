@@ -22,13 +22,16 @@
 
         <nav class="user-menu">
 
-            <? if ($is_auth) : ?>
+            <? session_start(); ?>
+
+            <? if (isset($_SESSION['user'])) : ?>
 
                 <div class="user-menu__image">
-                    <img src="<?= $user_avatar; ?>" height="40" width="40" alt="Пользователь">
+                    <img src="/img/avatar.jpg" height="40" width="40" alt="Пользователь">
                 </div>
                 <div class="user-menu__logged">
-                    <p><?= $user_name; ?></p>
+                    <p><?= $_SESSION['user']['name']; ?></p>
+                    <a href="../logout.php">Выход</a>
                 </div>
 
             <? else : ?>
@@ -38,7 +41,7 @@
                         <a href="#">Регистрация</a>
                     </li>
                     <li class="user-menu__item">
-                        <a href="#">Вход</a>
+                        <a href="login.php">Вход</a>
                     </li>
                 </div>
 
@@ -57,7 +60,7 @@
         <ul class="nav__list container">
             <? foreach ($arr['categories'] as $category) : ?>
                 <li class="nav__item">
-                    <a href="all-lots.html"><?=$category?></a>
+                    <a href="all-lots.php"><?=$category?></a>
                 </li>
             <? endforeach; ?>
         </ul>

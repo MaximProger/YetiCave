@@ -3,6 +3,8 @@
 require_once 'data.php';
 require_once 'functions.php';
 
+session_start();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $lot = $_POST;
 
@@ -32,15 +34,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (count($errors)) {
         $page_content = renderTemplate('templates/add-lot.php', ['lot' => $lot, 'errors' => $errors, 'dict' => $dict]);
-    }
-    else {
+    } else {
         $page_content = renderTemplate('templates/view.php', ['lot' => $lot, 'time' => $untilMidnightDate]);
     }
-}
-else {
+} else {
     $page_content = renderTemplate('templates/add-lot.php', []);
 }
-
 
 
 $layout_content = renderTemplate('templates/layout.php',
@@ -51,4 +50,11 @@ $layout_content = renderTemplate('templates/layout.php',
     ]);
 
 
-print ($layout_content);
+if (isset($_SESSION['user'])) {
+    print ($layout_content);
+} else {
+    http_response_code(404);
+    header("HTTP/1.0 404 Not Found");
+}
+
+

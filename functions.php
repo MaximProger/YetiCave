@@ -24,5 +24,18 @@ function renderTemplate($path, $arr) {
 
 }
 
+// Рекурсивный поиск в массиве
+function array_search_recursive($needle, array $haystack)
+{
+    foreach ($haystack as $key => $value) {
+        $current_key = $key;
+
+        if ($needle === $value or (is_array($value) && array_search_recursive($needle, $value) !== false)) {
+            return $haystack[$current_key];
+        }
+    }
+    return false;
+}
+
 
 
