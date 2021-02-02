@@ -7,9 +7,9 @@ INSERT INTO categories SET title = 'Инструменты';
 INSERT INTO categories SET title = 'Разное';
 
 # Заполнение пользователей
-INSERT INTO users SET name = 'Игнат', email = 'ignat.v@gmail.com', password = '$2y$10$OqvsKHQwr0Wk6FMZDoHo1uHoXd4UdxJG/5UDtUiie00XaxMHrW8ka';
-INSERT INTO users SET name = 'Леночка', email = 'kitty_93@li.ru', password = '$2y$10$bWtSjUhwgggtxrnJ7rxmIe63ABubHQs0AS0hgnOo41IEdMHkYoSVa';
-INSERT INTO users SET name = 'Руслан', email = 'warrior07@mail.ru', password = '$2y$10$2OxpEH7narYpkOT1H5cApezuzh10tZEEQ2axgFOaKW.55LxIJBgWW';
+INSERT INTO users SET name = 'Игнат', avatar = '', email = 'ignat.v@gmail.com', password = '$2y$10$OqvsKHQwr0Wk6FMZDoHo1uHoXd4UdxJG/5UDtUiie00XaxMHrW8ka';
+INSERT INTO users SET name = 'Леночка', avatar = '', email = 'kitty_93@li.ru', password = '$2y$10$bWtSjUhwgggtxrnJ7rxmIe63ABubHQs0AS0hgnOo41IEdMHkYoSVa';
+INSERT INTO users SET name = 'Руслан', avatar = '', email = 'warrior07@mail.ru', password = '$2y$10$2OxpEH7narYpkOT1H5cApezuzh10tZEEQ2axgFOaKW.55LxIJBgWW';
 
 # Заполнение объявлений
 INSERT INTO ads SET

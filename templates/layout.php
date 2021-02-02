@@ -27,7 +27,7 @@
             <? if (isset($_SESSION['user'])) : ?>
 
                 <div class="user-menu__image">
-                    <img src="/img/avatar.jpg" height="40" width="40" alt="Пользователь">
+                    <img src="<?= $_SESSION['user']['avatar'];?>" height="40" width="40" alt="Пользователь">
                 </div>
                 <div class="user-menu__logged">
                     <p><?= $_SESSION['user']['name']; ?></p>
@@ -38,7 +38,7 @@
 
                 <div class="user-menu__list">
                     <li class="user-menu__item">
-                        <a href="#">Регистрация</a>
+                        <a href="../registration.php">Регистрация</a>
                     </li>
                     <li class="user-menu__item">
                         <a href="login.php">Вход</a>

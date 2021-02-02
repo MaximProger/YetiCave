@@ -1,7 +1,6 @@
 <?php
 
-require_once 'data.php';
-require_once 'userdata.php';
+require_once 'init.php';
 require_once 'functions.php';
 
 session_start();
@@ -14,6 +13,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     foreach ($required as $field) {
         if (empty($form[$field])) {
             $errors[$field] = 'Это поле надо заполнить';
+        }
+    }
+
+    // Получаем массив пользователей
+    $users = [];
+
+    if (!$link) {
+        $error = mysqli_connect_error();
+        $content = renderTemplate('templates/error.php', ['error' => $error]);
+    } else {
+        $sql = 'SELECT * FROM users';
+        $result = mysqli_query($link, $sql);
+
+        if ($result) {
+            $users = mysqli_fetch_all($result, MYSQLI_ASSOC);
+        } else {
+            $error = mysqli_error($link);
+            $content = renderTemplate('templates/error.php', ['error' => $error]);
         }
     }
 

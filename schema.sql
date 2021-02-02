@@ -6,6 +6,7 @@ CREATE TABLE categories (
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name CHAR(128),
+    avatar CHAR(128),
     email CHAR (255),
     password CHAR(64)
 );
