@@ -11,7 +11,7 @@ if (!$link) {
     $error = mysqli_connect_error();
     $content = renderTemplate('templates/error.php', ['error' => $error]);
 } else {
-    $sql = 'SELECT c.title as category, a.title, a.price, a.img FROM ads a
+    $sql = 'SELECT c.title as category, a.title, a.price_start, a.img FROM ads a
 JOIN categories c ON c.id = a.category_id';
     $result = mysqli_query($link, $sql);
 

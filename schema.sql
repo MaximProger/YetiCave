@@ -19,11 +19,14 @@ CREATE TABLE ads (
     user_id INT,
     title CHAR(128),
     category_id INT,
+    description CHAR(255),
     price INT,
     price_start INT,
+    step INT,
     rates_count INT,
     img CHAR(255),
     is_active INT,
+    date DATETIME  NOT NULL,
     CONSTRAINT ads_user_id FOREIGN KEY (user_id)  REFERENCES users(id),
     CONSTRAINT ads_category FOREIGN KEY (category_id) REFERENCES categories(id)
 );

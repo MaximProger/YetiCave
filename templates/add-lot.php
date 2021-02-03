@@ -10,13 +10,13 @@
         <div class="form__item <? if(isset($arr['errors']['category'])): ?>form__item--invalid<? endif; ?>">
             <label for="category">Категория</label>
             <select id="category" name="category" required value="<?= $arr['errors']['category']?>">
-                <option>Выберите категорию</option>
-                <option>Доски и лыжи</option>
-                <option>Крепления</option>
-                <option>Ботинки</option>
-                <option>Одежда</option>
-                <option>Инструменты</option>
-                <option>Разное</option>
+                <option value="1">Выберите категорию</option>
+                <option value="2">Доски и лыжи</option>
+                <option value="3">Крепления</option>
+                <option value="4">Ботинки</option>
+                <option value="5">Одежда</option>
+                <option value="6">Инструменты</option>
+                <option value="7">Разное</option>
             </select>
             <span class="form__error">Выберите категорию</span>
         </div>
