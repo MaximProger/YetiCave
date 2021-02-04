@@ -1,1 +1,1 @@
-<h2><?=$arr['error']?></h2>
+<p class="error"><?=$arr['error']?></p>

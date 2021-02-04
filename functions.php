@@ -37,5 +37,38 @@ function array_search_recursive($needle, array $haystack)
     return false;
 }
 
+function db_get_prepare_stmt($link, $sql, $data)
+{
+    $stmt = mysqli_prepare($link, $sql);
+
+    if (empty($data)) {
+        return $stmt;
+    }
+
+    static $allowed_types = [
+        'integer' => 'i',
+        'double' => 'd',
+        'string' => 's',
+    ];
+
+    $types = '';
+    $stmt_data = [];
+
+    foreach ($data as $value) {
+        $type = gettype($value);
+
+        if (!isset($allowed_types[$type])) {
+            throw new \UnexpectedValueException(sprintf('Unexpected parameter type "%s".', $type));
+        }
+
+        $types .= $allowed_types[$type];
+        $stmt_data[] = $value;
+    }
+
+    mysqli_stmt_bind_param($stmt, $types, ...$stmt_data);
+
+    return $stmt;
+}
+
 
 
